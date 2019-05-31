@@ -1,15 +1,20 @@
-﻿using System;
-using System.ComponentModel;
-
+﻿using System.ComponentModel;
 using AG = Android.Graphics;
-using Xamarin.Forms.Platform.Android;
-
 using Com.Baidu.Mapapi.Map;
+using Xamarin.Forms.Platform.Android;
+using Xamarin.Forms.BaiduMaps;
+using Xamarin.Forms.BaiduMaps.Droid;
+using Xamarin.Forms;
+using Android.Content;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    public partial class MapRenderer : ViewRenderer<Map, MapView>, BaiduMap.IOnMapLoadedCallback
+    public partial class MapRenderer : Xamarin.Forms.Platform.Android.AppCompat.ViewRenderer<Map, MapView>, BaiduMap.IOnMapLoadedCallback
     {
+        protected MapRenderer(Context context) : base(context)
+        {
+
+        }
         protected MapView NativeMap => Control;
         protected Map Map => Element;
 
