@@ -19,7 +19,7 @@ namespace Xamarin.Forms.BaiduMaps
         protected abstract void RemoveNativeItem(TItem item);
         protected abstract void RemoveNativeItems(IList<TItem> items);
 
-        internal virtual void Register(Map map, TMap nativeMap)
+        public virtual void Register(Map map, TMap nativeMap)
         {
             if (null == nativeMap || null == map) {
                 return;
@@ -30,7 +30,7 @@ namespace Xamarin.Forms.BaiduMaps
             ((INotifyCollectionChanged)GetItems(map)).CollectionChanged += OnCollectionChanged;
         }
 
-        internal virtual void Unregister(Map map)
+        public virtual void Unregister(Map map)
         {
             if (null == map || null == GetItems(map)) {
                 return;
@@ -105,17 +105,17 @@ namespace Xamarin.Forms.BaiduMaps
             copiedItems.Clear();
         }
 
-        internal void NotifyReset()
+        public void NotifyReset()
         {
             OnCollectionChanged(GetItems(Map), new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
 
-        internal void NotifyUpdate(TItem item)
+        public void NotifyUpdate(TItem item)
         {
             UpdateNativeItem(item);
         }
 
-        internal abstract void OnMapPropertyChanged(PropertyChangedEventArgs e);
+        public abstract void OnMapPropertyChanged(PropertyChangedEventArgs e);
 
         protected abstract void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e);
     }

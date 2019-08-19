@@ -54,7 +54,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             }
         }
 
-        internal override void OnMapPropertyChanged(PropertyChangedEventArgs e)
+        public override void OnMapPropertyChanged(PropertyChangedEventArgs e)
         {
             throw new NotImplementedException();
         }

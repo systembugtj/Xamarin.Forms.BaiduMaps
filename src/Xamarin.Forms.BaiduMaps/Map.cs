@@ -179,8 +179,8 @@ namespace Xamarin.Forms.BaiduMaps
             set { SetValue(ShowZoomControlProperty, value); }
         }
 
-        public ILocationService LocationService { get; internal set; }
-        public IProjection Projection { get; internal set; }
+        public ILocationService LocationService { get; set; }
+        public IProjection Projection { get; set; }
 
         public IList<Pin> Pins => pins;
         private readonly ObservableCollection<Pin> pins = new ObservableCollection<Pin>();
@@ -195,37 +195,37 @@ namespace Xamarin.Forms.BaiduMaps
         private readonly ObservableCollection<Circle> circles = new ObservableCollection<Circle>();
 
         public event EventHandler<MapBlankClickedEventArgs> BlankClicked;
-        internal void SendBlankClicked(Coordinate pos)
+        public void SendBlankClicked(Coordinate pos)
         {
             BlankClicked?.Invoke(this, new MapBlankClickedEventArgs(pos));
         }
 
         public event EventHandler<MapPoiClickedEventArgs> PoiClicked;
-        internal void SendPoiClicked(Poi poi)
+        public void SendPoiClicked(Poi poi)
         {
             PoiClicked?.Invoke(this, new MapPoiClickedEventArgs(poi));
         }
 
         public event EventHandler<MapDoubleClickedEventArgs> DoubleClicked;
-        internal void SendDoubleClicked(Coordinate pos)
+        public void SendDoubleClicked(Coordinate pos)
         {
             DoubleClicked?.Invoke(this, new MapDoubleClickedEventArgs(pos));
         }
 
         public event EventHandler<MapLongClickedEventArgs> LongClicked;
-        internal void SendLongClicked(Coordinate pos)
+        public void SendLongClicked(Coordinate pos)
         {
             LongClicked?.Invoke(this, new MapLongClickedEventArgs(pos));
         }
 
         public event EventHandler<EventArgs> Loaded;
-        internal void SendLoaded()
+        public void SendLoaded()
         {
             Loaded?.Invoke(this, EventArgs.Empty);
         }
 
         public event EventHandler<EventArgs> StatusChanged;
-        internal void SendStatusChanged()
+        public void SendStatusChanged()
         {
             StatusChanged?.Invoke(this, EventArgs.Empty);
         }

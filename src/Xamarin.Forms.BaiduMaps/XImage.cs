@@ -2,7 +2,7 @@
 
 namespace Xamarin.Forms.BaiduMaps
 {
-    internal enum ImageSource
+    public enum ImageSource
     {
         File,
         Stream,
@@ -12,12 +12,12 @@ namespace Xamarin.Forms.BaiduMaps
 
     public sealed class XImage
     {
-        internal ImageSource Source { get; private set; }
-    
-        internal string FileName { get; private set; }
-        internal Stream Stream { get; private set; }
-        internal string BundleName { get; private set; }
-        internal string ResourceName { get; private set; }
+        public ImageSource Source { get; private set; }
+
+        public string FileName { get; private set; }
+        public Stream Stream { get; private set; }
+        public string BundleName { get; private set; }
+        public string ResourceName { get; private set; }
 
         private XImage() {}
 

@@ -59,7 +59,7 @@ namespace Xamarin.Forms.BaiduMaps
         }*/
 
         public event EventHandler<AnnotationDragEventArgs> Drag;
-        internal void SendDrag(AnnotationDragState state)
+        public void SendDrag(AnnotationDragState state)
         {
             Drag?.Invoke(this, new AnnotationDragEventArgs(state));
         }

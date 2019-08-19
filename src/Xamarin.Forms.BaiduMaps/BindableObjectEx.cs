@@ -2,9 +2,9 @@
 
 namespace Xamarin.Forms.BaiduMaps
 {
-    internal static class BindableObjectEx
+    public static class BindableObjectEx
     {
-        internal static void SetValueSilent(this BindableObject obj, BindableProperty property, object val)
+        public static void SetValueSilent(this BindableObject obj, BindableProperty property, object val)
         {
             //var setValueCore = typeof(BindableObject).GetRuntimeMethods()
             //.Where(m => m.Name.Equals("SetValueCore"))

@@ -8,14 +8,16 @@ using Xamarin.Forms.Platform.Android;
 using Com.Baidu.Mapapi.Map;
 using Com.Baidu.Mapapi.Model;
 using BMap = Com.Baidu.Mapapi.Map;
+using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    internal class PolylineImpl : BaseItemImpl<Polyline, BMap.MapView, BMap.Polyline>
+    internal class PolylineImpl : BaseItemImpl<Polyline, MapView, Polyline>
     {
         protected override IList<Polyline> GetItems(Map map) => map.Polylines;
 
-        protected override BMap.Polyline CreateNativeItem(Polyline item)
+        protected override Polyline CreateNativeItem(Polyline item)
         {
             List<LatLng> points = new List<LatLng>();
             foreach (var point in item.Points) {
@@ -27,14 +29,14 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 .InvokeWidth(item.Width)
                 .InvokeColor(item.Color.ToAndroid());
 
-            BMap.Polyline polyline = (BMap.Polyline)NativeMap.Map.AddOverlay(options);
-            item.NativeObject = polyline;
+            BMap.Polyline native = (BMap.Polyline)NativeMap.Map.AddOverlay(options);
+            item.NativeObject = native;
 
             ((INotifyCollectionChanged)(IList)item.Points).CollectionChanged += (sender, e) => {
                 OnItemPropertyChanged(item, new PropertyChangedEventArgs(Polyline.PointsProperty.PropertyName));
             };
 
-            return polyline;
+            return item;
         }
 
         protected override void UpdateNativeItem(Polyline item)
@@ -54,7 +56,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             }
         }
 
-        internal override void OnMapPropertyChanged(PropertyChangedEventArgs e)
+        public override void OnMapPropertyChanged(PropertyChangedEventArgs e)
         {
             throw new NotImplementedException();
         }
@@ -67,7 +69,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 return;
             }
 
-            if (Polyline.TitleProperty.PropertyName == e.PropertyName)
+            if (Annotation.TitleProperty.PropertyName == e.PropertyName)
             {
                 return;
             }

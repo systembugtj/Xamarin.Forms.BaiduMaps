@@ -87,3 +87,12 @@ Android Project configuration:
            Xamarin.FormsBaiduMaps.Init(null);
         2. Open Properties/AndroidManifest.xml, add permissions and your baidukey,  
            also package must accord with your baidu key
+
+
+# Build
+
+## XCode 10
+
+libstdc++.6.0.0 is deprecated and removed from lib, but still have on system for binary compatible.
+
+Solution: https://github.com/systembugtj/libstdc-.6.0.9.tbd

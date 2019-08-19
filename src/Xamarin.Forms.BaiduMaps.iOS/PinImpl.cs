@@ -54,7 +54,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             NativeMap.RemoveAnnotations(list);
         }
 
-        internal override void OnMapPropertyChanged(PropertyChangedEventArgs e)
+        public override void OnMapPropertyChanged(PropertyChangedEventArgs e)
         {
             //throw new NotImplementedException();
         }

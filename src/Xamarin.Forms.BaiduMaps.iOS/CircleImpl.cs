@@ -49,7 +49,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             NativeMap.RemoveOverlays(list);
         }
 
-        internal override void OnMapPropertyChanged(PropertyChangedEventArgs e)
+        public override void OnMapPropertyChanged(PropertyChangedEventArgs e)
         {
             throw new NotImplementedException();
         }

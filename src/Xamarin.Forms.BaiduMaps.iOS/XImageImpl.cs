@@ -3,9 +3,9 @@ using UIKit;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
-    internal static class XImageImpl
+    public static class XImageImpl
     {
-        internal static UIImage ToNative(this XImage image)
+        public static UIImage ToNative(this XImage image)
         {
             switch (image.Source)
             {
