@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Xamarin.Forms.BaiduMaps
 {
-    internal abstract class BaseItemImpl<TItem, TMap, TNative>
+    public abstract class BaseItemImpl<TItem, TMap, TNative>
         where TItem : BaseItem
         where TMap : class
         where TNative : class

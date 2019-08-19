@@ -13,7 +13,7 @@ using Xamarin.Forms.Platform.iOS;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
-    internal class PolylineImpl : BaseItemImpl<Polyline, BMKMapView, BMKPolyline>
+    public class PolylineImpl : BaseItemImpl<Polyline, BMKMapView, BMKPolyline>
     {
         protected override IList<Polyline> GetItems(Map map) => map.Polylines;
 
@@ -57,7 +57,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             NativeMap.RemoveOverlays(list);
         }
 
-        internal override void OnMapPropertyChanged(PropertyChangedEventArgs e)
+        public override void OnMapPropertyChanged(PropertyChangedEventArgs e)
         {
             throw new NotImplementedException();
         }
