@@ -89,10 +89,14 @@ Android Project configuration:
            also package must accord with your baidu key
 
 
-# Build
+# Troubleshooting
 
-## XCode 10
+## XCode 10 build failed due to not found libstc++
 
 libstdc++.6.0.0 is deprecated and removed from lib, but still have on system for binary compatible.
 
 Solution: https://github.com/systembugtj/libstdc-.6.0.9.tbd
+
+## Simulator: Default constructor not found for type 
+
+Setting "Don't Link" in Linker behavior of iOS Build Options.

@@ -1,12 +1,12 @@
 ﻿using System;
-
+using Xamarin.Forms.Platform.iOS;
 using Foundation;
 using UIKit;
 
 namespace Xamarin.Forms.BaiduMaps.Sample.iOS
 {
     [Register("AppDelegate")]
-    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+    public class AppDelegate : FormsApplicationDelegate
     {
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
